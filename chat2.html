@@ -1,0 +1,55 @@
+<head>
+  <title>TSM 18 - Meteor Demo</title>
+</head>
+
+<body>
+	{{> main}}	
+</body>
+
+<template name="user">
+
+	<input name="username" type="text" placeholder="Type your username here" >
+
+</template>
+
+<template name="main">
+	<div id="chatContainer">
+
+    <div id="chatTopBar" class="rounded"> 
+    	<input id="userholder" type="text" class="name" value="Annonymus">   
+    </div>
+
+	<div id="chatLineHolder">
+		{{#each messages}}
+	        <div class="chat rounded">
+	            <span class="gravatar">
+	                <img src="img/avatar.png" />
+	            </span>
+	            <span class="author"> {{ username }}: </span><span class="text"> {{ message }} </span>
+	            <span class="time"> {{ time }} </span>
+	        </div>
+        {{/each}}
+    </div>
+
+	<div id="chatUsers" class="rounded">
+		{{#each usernames}}
+			<div class="chat rounded">
+				{{ name }}
+			</div>
+		{{/each}}
+	</div>
+    <div id="chatBottomBar" class="rounded">
+    	<div class="tip"></div>
+        
+        <form id="loginForm" onsubmit="return false;">
+        	<input type="submit" class="blueButton" value="Message:" />
+
+           <input id="chatText" name="chatText" class="rounded" maxlength="255" />
+           
+        </form>
+        
+    </div>
+    
+</div>
+
+</template>
